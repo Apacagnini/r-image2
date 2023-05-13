@@ -1,7 +1,7 @@
 const app = require('./app');
 
 //VARIABLES
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 //ARRANCA APLICACION
 require('./utils/mongoose');

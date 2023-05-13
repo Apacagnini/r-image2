@@ -2,7 +2,7 @@ const { Router } = require('express')
 const { sendNodemailer } = require('../controllers/sendNodemailer.controllers');
 const { sendFormspree } = require('../controllers/sendFormspree.controller');
 
-send = sendNodemailer; //select email system
+send = sendFormspree; //select email system
 
 const router = Router()
 
