@@ -1,0 +1,13 @@
+.customButton {
+    padding-right: 3px;
+    padding-left: 3px;
+    border-color: transparent;
+    background-color: transparent;
+    font-size: 1.5rem !important;
+    cursor: pointer;
+
+    @media (max-width: $main-breakpoint) {
+        margin: auto;
+        margin-bottom: 0.5em;
+    }
+}

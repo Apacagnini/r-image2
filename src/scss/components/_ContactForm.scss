@@ -1,0 +1,124 @@
+
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    margin: auto;
+}
+
+.formTitle{
+    font-size: 3rem;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 2px $dark, 0 0 1px $dark;
+    @media (max-height: 800px) or (max-width: 300px) {
+        display: none;
+    }
+}
+
+.formRegister{
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 576px){
+        width: 70vw;
+    }
+
+    @media (min-width: 768px){
+        width: 50vw;
+    }
+}
+
+.errorText{
+    margin: 0px auto;
+    margin-bottom: 5px;
+    padding: 0px 10px;
+    max-width: max-content;
+    border-radius: 1em;
+    background-color: $input-background-focus;
+    color: $color-fail;
+    font-weight: 700;
+
+    & + .input{
+        border: 1px solid $color-fail;
+    }
+}
+
+.input{
+    margin-bottom: 10px;
+    padding: 10px 5px;
+    max-width: 100%;
+    border-radius: 7px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid $secondary-translucent; 
+    background-color: $input-background;
+    color: $text-color-active;
+
+    &:valid{
+        background-color: $input-background-valid !important;
+    }
+
+    &:focus{
+        outline: none;
+        border: 1px solid $secondary-translucent;
+        background-color: $input-background-focus  !important;
+    }
+}
+
+.textarea{
+    resize: none;
+}
+
+.submit{
+    padding: 12px;
+    border-radius: 7px;
+    background-color: $submit-background;
+    color: $text-color-active;
+    font-size: 1.1rem;
+    border: 1px solid transparent;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover{
+        transition: 0.5s all;
+        background-color: $submit-background-hover;
+        border: 1px solid $secondary-translucent;
+    }
+
+    p{
+        margin: 0px;
+    }
+}
+
+.submitOk{
+    transition: 0.5s all;
+    border: 1px solid $color-ok;
+
+    &:hover{
+        border: 1px solid $color-ok;
+    }
+}
+
+.submitFail{
+    transition: 0.5s all;
+    border: 1px solid $color-fail;
+
+    &:hover{
+        border: 1px solid $color-fail;
+    }
+}
+
+.spin{
+    height: 2em;
+}
+
+.check{
+    height: 2em;
+    fill: $color-ok;
+}
+
+.sendedFail{
+    color: $color-fail;
+    font-weight: 700;
+}

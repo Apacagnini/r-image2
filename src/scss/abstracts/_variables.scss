@@ -1,0 +1,47 @@
+// Modules
+@use "sass:map";
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+// Variables
+
+// Colors
+$gray-1: #f8f9fa;
+$gray-6: rgb(108 117 125);
+
+// override bootstrap default variables
+$font-family-base: 'Ubuntu', sans-serif;
+$secondary: $gray-6;
+$dark: #0b0d0e;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);
+
+// Responsive
+$main-breakpoint: map.get($grid-breakpoints, "lg");
+
+// Labels
+$secondary-translucent: rgba($secondary, 0.6);
+$dark-translucent: rgba($dark, 0.6);
+$text-color: $secondary;
+$text-color-active: $gray-1;
+
+// Form
+$input-background: rgba(33, 37, 41, 0.8);
+$input-background-valid: $input-background;
+$input-background-focus: rgba(23, 27, 31, 0.8);
+$submit-background: $input-background;
+$submit-background-hover: rgba(9, 9, 9, 0.9);
+$color-ok: rgb(5, 190, 5);
+$color-fail: #d93025;
+
+// Modal
+$modal-header-border-color: transparent;
+$modal-content-bg: none;

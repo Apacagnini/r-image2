@@ -1,0 +1,30 @@
+@mixin emphasis {
+    color: $text-color-active !important;
+    text-shadow: 0 0 15px $dark, 0 0 3px $dark;
+}
+
+@mixin focus-visible {
+    &:focus-visible {
+        border-radius: 10px;
+        border-right: 1px solid $text-color-active;
+        border-left: 1px solid $text-color-active;
+        outline: none;
+        transition: border-radius 0.2s;
+        @include emphasis;
+    }
+}
+
+@mixin svg-fill {
+    fill: $text-color;
+    filter: drop-shadow(0px 0px 1px $dark);
+}
+
+@mixin svg-button($height: 2em) {
+    height: $height;
+    transition: fill 0.5s;
+    @include svg-fill;
+
+    &:hover {
+        fill: $text-color-active;
+    }
+}

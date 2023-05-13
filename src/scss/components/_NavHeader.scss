@@ -1,0 +1,83 @@
+.blur {
+    backdrop-filter: blur(15px) brightness(100%) saturate(70%);
+}
+
+.navHeader{
+    width: 100%;
+    margin: 0px;
+    padding: 1%;
+    border: 0px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    font-weight: 500;
+}
+
+.border-bottom-transition {
+    transition: border-bottom 1s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.border-bottom-active {
+    border-bottom: 1px solid $secondary-translucent; 
+}
+
+.logo{
+    font-size: 2.5rem !important;
+}
+
+.navCollapse{
+    display: none !important;
+
+    @media (min-width: $main-breakpoint){
+        display: flex !important;
+    }
+}
+
+.navShow{
+    display: flex;
+}
+
+.navButton {
+    border-color: transparent;
+    box-shadow: none;
+    font-size: 1.5rem !important;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.navIcon{
+    margin-right: 10px;
+    margin-left: 10px;
+    @include svg-button;
+}
+
+.fullHeight{
+    transition: min-height 0.3s ease-out;
+    min-height: 100vh;
+}
+
+.flexDirection{
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $main-breakpoint){
+        flex-direction: row;
+    }
+}
+
+.navError{
+    margin: auto 0px;
+    height: min-content;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem !important;
+    color: $text-color;
+    text-shadow: 0 0 2px $dark, 0 0 1px $dark;
+
+    @media (max-width: $main-breakpoint) {
+        margin: auto;
+    }
+}
