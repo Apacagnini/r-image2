@@ -1,6 +1,9 @@
 const { Router } = require('express')
 const { searchBack } = require('../controllers/searchBack.controller');
-const { search } = require('../controllers/search.controllers');
+const dotenv = require('dotenv');
+dotenv.config();
+
+const { search } = process.env.SEARCH === 'AtlasFree'? require('../controllers/searchAtlasFree.controllers') : require('../controllers/search.controllers');
 
 const router = Router()
 
