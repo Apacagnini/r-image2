@@ -1,5 +1,6 @@
 const express = require('express');
-const cors = require('cors');
+const dotenv = require('dotenv');
+dotenv.config();
 
 //CREACION DEL SERVIDOR
 const app = express();
@@ -11,7 +12,10 @@ const categories = require('./routes/categories.routes');
 
 //MIDDLEWARES
 app.use(express.json())
-app.use(cors()) //solo en desarollo
+if (process.env.CORS === '1'){
+    const cors = require('cors');
+    app.use(cors()) //solo en desarollo
+}
 
 app.use((req, res, next) => {
     console.log(`Route: ${req.url} Method: ${req.method}`)

@@ -45,7 +45,6 @@ const search = async (req, res, next) => {
     seed = Number(seed)
     page = Number(page)
     per_page = Number(per_page)
-    console.log('AtlasFree') //Test
 
     if (categoriesList.includes(query.replaceAll('_', ' ').replaceAll('+', ' '))) {
         let n = await searchModel.find({ category }).count();
