@@ -3,6 +3,8 @@ const { defaultSearch } = require('../constants/defaultSearch');
 const { categoriesList } = require('../constants/categoriesList');
 const { fetchPexels } = require('../utils/fetchPexels');
 const { createHash } = require('node:crypto');
+const dotenv = require('dotenv');
+dotenv.config();
 
 async function savePhotos(json, category) {
     if ("photos" in json) {
