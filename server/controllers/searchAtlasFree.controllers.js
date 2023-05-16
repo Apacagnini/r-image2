@@ -42,9 +42,9 @@ const search = async (req, res, next) => {
     let catLimitReached = false
     let photos = []
     let category = query.replaceAll(' ', '_').replaceAll('+', '_')
-    seed = Number(seed)
-    page = Number(page)
-    per_page = Number(per_page)
+    seed = parseInt(seed)
+    page = parseInt(page)
+    per_page = parseInt(per_page)
 
     if (categoriesList.includes(query.replaceAll('_', ' ').replaceAll('+', ' '))) {
         let n = await searchModel.find({ category }).count();
@@ -78,7 +78,7 @@ const search = async (req, res, next) => {
     if (photos == undefined || photos.length == 0) {
         res.sendStatus(500) //500 Internal Server Error
     } else {
-        let myHost = ( req.secure || process.env.FORCE_HTTPS_ON_NEXT_PAGE == '1' ? 'https' : 'http' ) + '://' + req.headers.host;
+        let myHost = ( req.secure || process.env.FORCE_HTTPS_ON_NEXT_PAGE === '1' ? 'https' : 'http' ) + '://' + req.headers.host;
         next_page = `${myHost}/search?page=${page + 1}&per_page=${per_page}&query=${query.replaceAll(' ', '+')}&seed=${seed}`
         console.log('next_page: ', next_page)
         res.send({ page, per_page, photos, next_page })
