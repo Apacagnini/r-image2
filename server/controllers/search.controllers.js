@@ -89,7 +89,7 @@ const search = async (req, res, next) => {
     if (photos == undefined || photos.length == 0) {
         res.sendStatus(500) //500 Internal Server Error
     } else {
-        let myHost = req.secure ? 'https' : 'http' + '://' + req.headers.host;
+        let myHost = req.secure || process.env.FORCE_HTTPS_ON_NEXT_PAGE ? 'https' : 'http' + '://' + req.headers.host;
         next_page = `${myHost}/search?page=${page + 1}&per_page=${per_page}&query=${query.replaceAll(' ', '+')}&seed=${seed}`
         console.log('next_page: ', next_page)
         res.send({ page, per_page, photos, next_page })
