@@ -4,9 +4,9 @@ dotenv.config();
 
 // connection to db
 (async () => {
-  if (![undefined, 'DISABLED'].includes(process.env.MONGO_URL)) {
+  if (![undefined, 'DISABLED'].includes(process.env.MONGODB_URI)) {
     try {
-      const db = await connect(process.env.MONGO_URL);
+      const db = await connect(process.env.MONGODB_URI);
       console.log("Db connectect to", db.connection.name);
     } catch (error) {
       console.error(error);
