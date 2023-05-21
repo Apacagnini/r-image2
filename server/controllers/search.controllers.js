@@ -2,9 +2,7 @@ const { searchModel } = require('../models/Search.model');
 const { defaultSearch } = require('../constants/defaultSearch');
 const { categoriesList } = require('../constants/categoriesList');
 const { fetchPexels } = require('../utils/fetchPexels');
-const dotenv = require('dotenv');
-dotenv.config();
-const FORCE_HTTPS_ON_NEXT_PAGE = process.env.VERCEL
+const { FORCE_HTTPS_ON_NEXT_PAGE } = require('../constants/env');
 
 async function savePhotos(json, category) {
     if ("photos" in json) {
