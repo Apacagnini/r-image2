@@ -27,5 +27,10 @@ app.use(search);
 app.use(categories);
 app.use(send);
 
+//404
+app.use((req, res) => {
+    res.sendStatus(404)
+})
+
 //EXPORTACION
 module.exports = app;
