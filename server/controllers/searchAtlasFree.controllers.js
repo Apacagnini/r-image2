@@ -5,8 +5,6 @@ const { fetchPexels } = require('../utils/fetchPexels');
 const { createHash } = require('node:crypto');
 const dotenv = require('dotenv');
 dotenv.config();
-
-//const FORCE_HTTPS_ON_NEXT_PAGE = process.env.FORCE_HTTPS_ON_NEXT_PAGE;
 const FORCE_HTTPS_ON_NEXT_PAGE = process.env.VERCEL
 
 async function savePhotos(json, category) {
@@ -84,9 +82,9 @@ const search = async (req, res, next) => {
         res.sendStatus(500) //500 Internal Server Error
     } else {
         let myHost = ( req.secure || FORCE_HTTPS_ON_NEXT_PAGE === '1' ? 'https' : 'http' ) + '://' + req.headers.host;
-        next_page = `${myHost}/search?page=${page + 1}&per_page=${per_page}&query=${query.replaceAll(' ', '+')}&seed=${seed}`
-        console.log('next_page: ', next_page)
-        res.send({ page, per_page, photos, next_page, FORCE_HTTPS_ON_NEXT_PAGE })
+        next_page = `${myHost}/search?page=${page + 1}&per_page=${per_page}&query=${query.replaceAll(' ', '+')}&seed=${seed}`;
+        console.log('next_page: ', next_page);
+        res.send({ page, per_page, photos, next_page });
     }
 }
 
