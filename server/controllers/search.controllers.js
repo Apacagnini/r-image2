@@ -98,7 +98,3 @@ const search = async (req, res, next) => {
 }
 
 module.exports = { search }
-
-//TEST
-// http://localhost:3001/search?page=1&per_page=2&query=city_night&seed=4
-// https://r-image2-api.vercel.app/search?page=1&per_page=2&query=city_night&seed=4

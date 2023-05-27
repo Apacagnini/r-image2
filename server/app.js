@@ -17,7 +17,7 @@ const categories = require('./routes/categories.routes');
 app.use(express.json())
 if (process.env.CORS === '1'){
     const cors = require('cors');
-    app.use(cors()) //solo en desarollo
+    app.use(cors())
 }
 
 app.use((req, res, next) => {
