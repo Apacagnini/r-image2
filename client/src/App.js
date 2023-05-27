@@ -7,17 +7,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.seed = 1
-    this.pexelsPerPage = 100;
     this.defaultNumImg = 10;
     this.categoriesList = [];
+    this.token = process.env.REACT_APP_API_TOKEN;
     this.state = { activeCategory: 'city night', categories: {}, usedIds: [], photos: {}, apiError: false, loading: false };
   }
 
   fetchCategories(){
-    fetch(process.env.REACT_APP_API_URL+'/categories')
+    fetch(process.env.REACT_APP_API_URL+'/categories', { headers: { 'apitoken':this.token } })
         .then(response => response.json())
         .then(json => {this.categoriesList = json.categoriesList})
-        .catch( () => this.setState({ apiError: true }) )
+        .catch( () => this.setState({ apiError: true }) );
   }
 
   isIndUsedIds(id) { //en desuso
@@ -75,8 +75,8 @@ class App extends React.Component {
     if (this.state.apiError === true) return {};
     this.setState({ loading: true });
     try {
-      url = (url === '') ? `${process.env.REACT_APP_API_URL}/search?query=${category.replaceAll(' ', '+')}&per_page=${this.pexelsPerPage}&seed=${this.seed}` : url;
-      let res = await fetch(url);
+      url = (url === '') ? `${process.env.REACT_APP_API_URL}/search?query=${category.replaceAll(' ', '+')}&seed=${this.seed}` : url;
+      let res = await fetch(url, { headers: { 'apitoken':this.token } });
       let json = await res.json();
       if (!res.ok) throw { status: res.status, statusText: res.statusText };
       return json;
@@ -132,6 +132,7 @@ class App extends React.Component {
           categoriesList={this.categoriesList}
           categoriesCallback={this.goToCategory}
           apiError={this.state.apiError}
+          token={this.token}
         />
         <ImgContainer
           usedIds={this.state.usedIds}

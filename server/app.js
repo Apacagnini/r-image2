@@ -2,10 +2,13 @@ const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config();
 
-//CREACION DEL SERVIDOR
+//SERVER CREATION
 const app = express();
 
-//IMPORTACION RUTAS
+//IMPORT MIDDLEWARES
+const token = require('./middlewares/token.middlewares');
+
+//IMPORT ROUTES
 const search = require('./routes/search.routes');
 const send = require('./routes/send.routes');
 const categories = require('./routes/categories.routes');
@@ -22,7 +25,9 @@ app.use((req, res, next) => {
     next()
 })
 
-//RUTAS
+app.use(token)
+
+//ROUTES
 app.use(search);
 app.use(categories);
 app.use(send);
@@ -32,5 +37,5 @@ app.use((req, res) => {
     res.sendStatus(404)
 })
 
-//EXPORTACION
+//EXPORT
 module.exports = app;

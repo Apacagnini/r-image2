@@ -17,9 +17,7 @@ async function savePhotos(json, category) {
                 } else if (!search_id[0].category.includes(category)) {
                     await searchModel.updateOne({ id: element.id }, { $push: { category } })
                 }
-            } catch (error) {
-                //console.log(`Error en savePhotos:\n ${error}`);
-            }
+            } catch (error) {  }
         })
     }
 }
@@ -87,7 +85,3 @@ const search = async (req, res, next) => {
 }
 
 module.exports = { search }
-
-//TEST
-// http://localhost:3001/search?page=1&per_page=2&query=city_night&seed=4
-// https://r-image2-api.vercel.app/search?page=1&per_page=2&query=city_night&seed=4

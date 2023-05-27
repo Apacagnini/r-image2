@@ -1,6 +1,8 @@
 const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
+dotenv.config();
 
-const sendNodemailer = async (req, res, next) => {
+const send = async (req, res, next) => {
     const { fullName, email, message } = req.body;
 
     //Validations
@@ -9,7 +11,7 @@ const sendNodemailer = async (req, res, next) => {
         return
     }
 
-    //Configurar transportador SMTP
+    //Configure SMTP transporter
     const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
         port: 587,
@@ -19,7 +21,7 @@ const sendNodemailer = async (req, res, next) => {
         }
     });
 
-    //Configurar correo electrónico
+    //Set up email
     const mailOptions = {
         from: email,
         to: process.env.NODEMAILER_MAILOPTIONS_ADDRESSEE,
@@ -40,4 +42,4 @@ const sendNodemailer = async (req, res, next) => {
     }
 }
 
-module.exports = { sendNodemailer }
+module.exports = { send }

@@ -2,7 +2,7 @@ const { connect } = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
 
-// connection to db
+// Connection to db
 (async () => {
   if (![undefined, 'DISABLED'].includes(process.env.MONGODB_URI)) {
     try {

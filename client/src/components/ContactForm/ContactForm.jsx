@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { ReactComponent as Check } from '../../assets/check.svg'
 import { ReactComponent as Spin } from '../../assets/spin.svg'
 
-export default function ContactForm() {
+export default function ContactForm(props) {
     const [sended, setSended] = useState(3);
     const { register, formState: { errors }, handleSubmit, reset } = useForm("");
     const maxLength = 80;
@@ -19,7 +19,8 @@ export default function ContactForm() {
                 body: JSON.stringify(data),
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'apitoken':props.token
                 },
             });
             const jsonData = await response.json();

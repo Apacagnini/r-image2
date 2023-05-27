@@ -1,4 +1,7 @@
-const sendFormspree = async (req, res, next) => {
+const dotenv = require('dotenv');
+dotenv.config();
+
+const send = async (req, res, next) => {
     try {
         const response = await fetch(process.env.FORMSPREE_SUBMIT_URL, {
             method: 'post',
@@ -15,4 +18,4 @@ const sendFormspree = async (req, res, next) => {
     }
 }
 
-module.exports = { sendFormspree }
+module.exports = { send }

@@ -1,11 +1,9 @@
 const { Router } = require('express')
-const { sendNodemailer } = require('../controllers/sendNodemailer.controllers');
-const { sendFormspree } = require('../controllers/sendFormspree.controller');
+const dotenv = require('dotenv');
+dotenv.config();
 
-send = sendFormspree; //select email system
-
+const { send } = process.env.SENDSYSTEM === 'Nodemailer'? require('../controllers/sendNodemailer.controllers') : require('../controllers/sendFormspree.controller');
 const router = Router()
-
 router.post('/send', send )
 
 module.exports = router

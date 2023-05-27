@@ -71,7 +71,7 @@ export default function NavHeader(props) {
                 }
             </div>
             {
-                (state === 'contact') ? <ContactForm /> :
+                (state === 'contact') ? <ContactForm token={props.token} /> :
                     (props.apiError === true) ? <></> :
                         <SearchSuggestions
                             activeCategory={props.activeCategory}
