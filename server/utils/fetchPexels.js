@@ -6,10 +6,10 @@ async function fetchPexels(page, per_page, query) {
         return json
     } catch (err) {
         let errText = err.statusText || "Error in fetch pexels";
-        mesage = `Error ${err.status}: ${errText}`
+        let mesage = `Error ${err.status}: ${errText}`;
         console.log(mesage);
         return {}
     }
 }
 
-module.exports = { fetchPexels }
+module.exports = { fetchPexels };

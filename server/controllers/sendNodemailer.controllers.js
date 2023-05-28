@@ -25,7 +25,7 @@ const send = async (req, res, next) => {
     const mailOptions = {
         from: email,
         to: process.env.NODEMAILER_MAILOPTIONS_ADDRESSEE,
-        subject: 'Formulario de contacto',
+        subject: 'Contact Form',
         text: `
     FullName: ${fullName}\n
     Email: ${email}\n 
@@ -42,4 +42,4 @@ const send = async (req, res, next) => {
     }
 }
 
-module.exports = { send }
+module.exports = { send };

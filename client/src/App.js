@@ -20,10 +20,6 @@ class App extends React.Component {
         .catch( () => this.setState({ apiError: true }) );
   }
 
-  isIndUsedIds(id) { //en desuso
-    return this.state.usedIds.includes(id);
-  }
-
   isInCategories(id) {
     return Object.values(this.state.categories).some((category) => (category.availableIds.includes(id)));
   }

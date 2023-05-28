@@ -12,7 +12,7 @@ dotenv.config();
       console.error(error);
     }
   } else {
-    console.log('Database not available')
+    console.log('Database not available');
   }
 })();
 

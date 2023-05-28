@@ -74,8 +74,8 @@ const searchSchema = new Schema(
     }
 );
 
-searchSchema.index({ category: 1, id: -1 })
+searchSchema.index({ category: 1, id: -1 });
 
 searchModel = model("searchModel", searchSchema);
 
-module.exports = { searchModel }
+module.exports = { searchModel };

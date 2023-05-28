@@ -18,4 +18,4 @@ const send = async (req, res, next) => {
     }
 }
 
-module.exports = { send }
+module.exports = { send };
