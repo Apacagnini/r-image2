@@ -22,10 +22,20 @@ In the project server root directory:<br>
     PEXELS_API_KEY=YOUR_PEXELS_TOKEN
     CORS=1
     VERCEL=0
-    SEARCH=AtlasFree
+    SEARCH=SEARCH_OPTION
     PORT=YOUR_PORT
     API_TOKEN=YOUR_AUTH_TOKEN_TO_CONNECT
     SENDSYSTEM=SELECTED_EMAIL_SYSTEM
+```
+##### SEARCH OPCTION
+Allows you to select between two different methods to search for new images. According to the database service available:<br>
+If you use the MongoDB Atlas shared plan, you should set
+```
+    SEARCH=AtlasFree
+```
+If you use other MongoDB Atlas plan or mongodb on localhost, you should set:<br>
+```
+    SEARCH=mongodb
 ```
 ##### VERCEL
 In the vercel deploy it automatically sets the variables PORT and VERCEL<br>
