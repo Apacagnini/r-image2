@@ -27,7 +27,7 @@ In the project server root directory:<br>
     API_TOKEN=YOUR_AUTH_TOKEN_TO_CONNECT
     SENDSYSTEM=SELECTED_EMAIL_SYSTEM
 ```
-##### SEARCH OPCTION
+##### SEARCH OPTION
 Allows you to select between two different methods to search for new images. According to the database service available:<br>
 If you use the MongoDB Atlas shared plan, you should set
 ```
@@ -37,6 +37,14 @@ If you use other MongoDB Atlas plan or mongodb on localhost, you should set:<br>
 ```
     SEARCH=mongodb
 ```
+##### CORS OPTION
+```
+    CORS=1 #Disable cors
+```
+```
+    CORS=0 #Enable cors
+```
+
 ##### VERCEL
 In the vercel deploy it automatically sets the variables PORT and VERCEL<br>
 #### Pexels Token
