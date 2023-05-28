@@ -34,14 +34,15 @@ In the vercel deploy it automatically sets the variables PORT and VERCEL
 To create the authentication pexels token you can see [this](https://www.pexels.com/api/documentation/#authorization "").<br>
 #### Submit Contact Email
 ![send mail](./screenshots/04.png)<br><br>
-[FormsPree](https://formspree.io "") has been tested successfully.<br><br>
+[FormsPree](https://formspree.io "") has been tested successfully.<br>
 ![received mail](./screenshots/06.png)<br>
 To use it, you need to set the following environment variables on the server:
 ```
     SENDSYSTEM=Formspree
     FORMSPREE_SUBMIT_URL=YOUR_URL_FOR_SUBMIT
 ```
-[Ethereal](https://ethereal.email "") has been tested successfully.<br><br>
+<br><br>
+[Ethereal](https://ethereal.email "") has been tested successfully.<br>
 ![received mail](./screenshots/08.png)<br>
 To use it, you need to set the following environment variables on the server:
 ```
