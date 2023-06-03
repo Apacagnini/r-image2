@@ -7,7 +7,7 @@ It allows you to enjoy viewing random images from the category you select with i
 It consists of a frontend made in react that connects through an api with a backend made in node and express which uses a mongoDB database that stores the information of the images. When the images for a category in the database are not enough to satisfy the client's demand, the backend resorts to an external api and adds the new non-duplicate images to the stock.<br>
 ### Source of the images
 The images and other information are obtained from the [Pexels](https://www.pexels.com/ "") [api](https://www.pexels.com/api/documentation/ "").<br>
-### Limits
+### Pexels Limits
 By default, the pexels API has a limited rate of requests per hour and per month.<br>
 For more information see [this](https://www.pexels.com/api/documentation/#guidelines, "").<br>
 ![blocked](./screenshots/07.png)<br>
@@ -80,7 +80,7 @@ To use it, you need to set the following environment variables on the server:
     NODEMAILER_TRANSPORTER_PASS=LINKED_EMAIL_ACCOUNT_PASSWORD
     NODEMAILER_MAILOPTIONS_ADDRESSEE=EMAIL_RECEIVER
 ```
-### DEPLOY LOCALLY
+### Deploy Locally
 ```
     cd r-image/client
     vim .env.local # add environment variables
