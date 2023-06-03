@@ -1,4 +1,5 @@
 const { searchModel } = require('../models/Search.model');
+const { limit } = require('../utils/limit');
 const { defaultSearch } = require('../constants/defaultSearch');
 const { categoriesList } = require('../constants/categoriesList');
 const { fetchPexels } = require('../utils/fetchPexels');
@@ -65,7 +66,10 @@ const search = async (req, res, next) => {
         if (n < per_page * page) {
             console.log('Fetch from external api...');
             let json = await fetchPexels(page, per_page * 2, query);
-            await savePhotos(json, category);
+            const limitOK = await limit();
+            if (limitOK) {
+                await savePhotos(json, category);
+            }
             if ("photos" in json && json.photos.length == 0) {
                 console.log('category photo limit reached: ', category);
                 catLimitReached = true;
