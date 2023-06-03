@@ -1,6 +1,9 @@
 # R-IMAGE 
-## MERN based web app to view random images of selected theme
+## MERN based Web App to view random images<br>
+It allows you to view random images from the selected category with infinite scrolling without repeating images at least until the available unique images are exhausted.
 ![screenshot](./screenshots/01.png)<br>
+### Structure
+It consists of a frontend made in react that connects through an api with a backend made in node and express which uses a mongoDB database that stores the information of the images. When the images for a category in the database are not enough to satisfy the client's demand, the backend resorts to an external api and adds the new non-duplicate images to the stock.<br>
 ### Source of the images
 The images and other information are obtained from the [Pexels](https://www.pexels.com/ "") [api](https://www.pexels.com/api/documentation/ "").<br>
 ### Limits
@@ -44,7 +47,15 @@ If you use other MongoDB Atlas plan or mongodb on localhost, you should set:<br>
 ```
     CORS=0 #Enable cors
 ```
-
+##### API TOKEN
+Adds another layer of security whereby the backend only allows connections that include a token in the headers.
+The token in client and server must be the same and not including it in the server disables this option.
+```
+    REACT_APP_API_TOKEN=YOUR_AUTH_TOKEN_TO_CONNECT #Client
+```
+```
+    API_TOKEN=YOUR_AUTH_TOKEN_TO_CONNECT #Server
+```
 ##### VERCEL
 In the vercel deploy it automatically sets the variables PORT and VERCEL<br>
 #### Pexels Token
@@ -67,4 +78,15 @@ To use it, you need to set the following environment variables on the server:
     NODEMAILER_TRANSPORTER_USER=LINKED_EMAIL_ACCOUNT
     NODEMAILER_TRANSPORTER_PASS=LINKED_EMAIL_ACCOUNT_PASSWORD
     NODEMAILER_MAILOPTIONS_ADDRESSEE=EMAIL_RECEIVER
+```
+### DEPLOY LOCALLY
+```
+    cd r-image/client
+    vim .env.local # add environment variables
+    npm start
+```
+```
+    cd r-image/server
+    vim .env # add environment variables
+    npm run dev
 ```
