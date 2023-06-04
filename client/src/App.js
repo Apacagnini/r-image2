@@ -6,7 +6,7 @@ import Footer from './components/Footer/Footer';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.seed = 1
+    this.seed = 1;
     this.defaultNumImg = 10;
     this.categoriesList = [];
     this.token = process.env.REACT_APP_API_TOKEN;
@@ -61,9 +61,9 @@ class App extends React.Component {
   setSeed() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('seed') === true) {
-      this.seed = urlParams.get('seed')
+      this.seed = urlParams.get('seed');
     } else {
-      this.seed = new Date().getTime() % 10000
+      this.seed = new Date().getTime() % 10000;
     }
   }
 
@@ -85,7 +85,7 @@ class App extends React.Component {
       return {};
 
     } finally {
-      this.setState({ loading: false });
+      setTimeout(() => this.setState({ loading: false }), 500);
     }
   }
 
@@ -96,8 +96,12 @@ class App extends React.Component {
   }
 
   addToImgContainer = async (category, num_img) => {
-    this.setState({ activeCategory: category });
-    await this.getPhotos(category, num_img);
+    if (this.state.loading === false){
+      if (this.state.activeCategory != category){
+        this.setState({ activeCategory: category });
+      }
+      await this.getPhotos(category, num_img);
+    }
   }
 
   goToCategory = (category) => {
@@ -106,13 +110,13 @@ class App extends React.Component {
   }
 
   infiniteScroll = () => {
-    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight) this.addToImgContainer(this.state.activeCategory, this.defaultNumImg);
+    if (window.scrollY + (window.innerHeight * 1.5) >= document.documentElement.scrollHeight) this.addToImgContainer(this.state.activeCategory, this.defaultNumImg);
   }
 
   componentDidMount() {
     this.fetchCategories();
     this.setSeed();
-    this.addToImgContainer(this.state.activeCategory, 12);
+    this.addToImgContainer(this.state.activeCategory, 15);
     window.addEventListener('scroll', this.infiniteScroll, true);
   }
 
