@@ -57,6 +57,12 @@ The token in client and server must be the same and not including it in the serv
 ```
     API_TOKEN=YOUR_AUTH_TOKEN_TO_CONNECT #Server
 ```
+##### STORAGE LIMIT
+Allows you to set a maximum limit in Kilobytes to the size of the database.<br>
+If this variable is not established or its value is 0, this feature is disabled.<br>
+```
+    STORAGE_LIMIT=YOUR_LIMIT_IN_KB #Server
+```
 ##### VERCEL
 In the vercel deploy it automatically sets the variables PORT and VERCEL<br>
 #### Pexels Token
@@ -81,6 +87,9 @@ To use it, you need to set the following environment variables on the server:
     NODEMAILER_MAILOPTIONS_ADDRESSEE=EMAIL_RECEIVER
 ```
 ### Deploy Locally
+```
+git clone https://github.com/Apacagnini/r-image2.git
+```
 ```
     cd r-image/client
     vim .env.local # add environment variables
