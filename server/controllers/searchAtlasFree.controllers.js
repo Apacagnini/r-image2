@@ -45,11 +45,11 @@ const search = async (req, res, next) => {
     seed = parseInt(seed);
     page = parseInt(page);
     per_page = parseInt(per_page);
+    const limitOK = await limit(); //TEST
     
     if (categoriesList.includes(query.replaceAll('_', ' ').replaceAll('+', ' '))) {
         let n = await searchModel.find({ category }).count();
         console.log('count: ', n, ' required: ', per_page * (page));
-        const limitOK = await limit(); //TEST
         
         if (n < per_page * page) {
             console.log('Fetch from external api...');
