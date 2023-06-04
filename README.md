@@ -1,7 +1,7 @@
 # R-IMAGE 
 ## MERN based Web App to view random images<br>
 ![screenshot](./screenshots/01.png)<br>
-### PURPOSE
+### Purpose
 It allows you to enjoy viewing random images from the category you select with infinite scrolling without repeating images at least until the available unique images are exhausted.<br> 
 ### Structure
 It consists of a frontend made in react that connects through an api with a backend made in node and express which uses a mongoDB database that stores the information of the images. When the images for a category in the database are not enough to satisfy the client's demand, the backend resorts to an external api and adds the new non-duplicate images to the stock.<br>
