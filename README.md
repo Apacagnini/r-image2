@@ -59,7 +59,7 @@ The token in client and server must be the same and not including it in the serv
 ```
 ##### STORAGE LIMIT
 Allows you to set a maximum limit in Kilobytes to the size of the database.<br>
-If this variable is not established or its value is 0, this feature is disabled.<br>
+If this variable is not set it takes a default value of 300000Kb. If its value is 0, the limit is disabled.<br>
 ```
     STORAGE_LIMIT=YOUR_LIMIT_IN_KB #Server
 ```

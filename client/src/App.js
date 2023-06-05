@@ -54,6 +54,10 @@ class App extends React.Component {
     return this.state.photos[id].photographer;
   }
 
+  getAlt = (id) => {
+    return this.state.photos[id].alt;
+  }
+
   getNextPage(category) {
     return this.state.categories[category].next_page;
   }
@@ -138,6 +142,7 @@ class App extends React.Component {
           usedIds={this.state.usedIds}
           getSrc={this.getSrc}
           getPhotographer={this.getPhotographer}
+          getAlt={this.getAlt}
         />
         <Footer loading={this.state.loading} />
       </>
