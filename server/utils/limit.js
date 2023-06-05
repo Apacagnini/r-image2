@@ -2,7 +2,9 @@ const { searchModel } = require('../models/Search.model');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const STORAGE_LIMIT = (isNaN(parseInt(process.env.STORAGE_LIMIT)))? 0 : parseInt(process.env.STORAGE_LIMIT);
+const STORAGE_LIMIT_DEFAULT = 300;  //Kb
+
+const STORAGE_LIMIT = (isNaN(parseInt(process.env.STORAGE_LIMIT)))? STORAGE_LIMIT_DEFAULT : parseInt(process.env.STORAGE_LIMIT);
 
 const limit = async ()=>{
     if(STORAGE_LIMIT > 0){
