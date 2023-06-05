@@ -4,7 +4,7 @@
 ### Purpose
 It allows you to enjoy viewing random images from the category you select with infinite scrolling without repeating images at least until the available unique images are exhausted.<br> 
 ### Structure
-It consists of a frontend made in react that connects through an api with a backend made in node and express which uses a mongoDB database that stores the information of the images. When the images for a category in the database are not enough to satisfy the client's demand, the backend resorts to an external api and adds the new non-duplicate images to the stock.<br>
+It consists of a frontend made in react that connects through an api with a backend made in nodejs and express which uses a mongoDB database that stores the information of the images. When the images for a category in the database are not enough to satisfy the client's demand, the backend resorts to an external api and adds the new non-duplicate images to the stock.<br>
 ### Source of the images
 The images and other information are obtained from the [Pexels](https://www.pexels.com/ "") [api](https://www.pexels.com/api/documentation/ "").<br>
 ### Pexels Limits
@@ -91,12 +91,12 @@ To use it, you need to set the following environment variables on the server:
 git clone https://github.com/Apacagnini/r-image2.git
 ```
 ```
-    cd r-image/client
-    vim .env.local # add environment variables
-    npm start
-```
-```
     cd r-image/server
     vim .env # add environment variables
     npm run dev
+```
+```
+    cd r-image/client
+    vim .env.local # add environment variables
+    npm start
 ```
