@@ -2,7 +2,7 @@ const { searchModel } = require('../models/Search.model');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const STORAGE_LIMIT_DEFAULT = 0//300000;  //Kb
+const STORAGE_LIMIT_DEFAULT = 300000;  //Kb
 
 //const STORAGE_LIMIT = (isNaN(parseInt(process.env.STORAGE_LIMIT)))? STORAGE_LIMIT_DEFAULT : parseInt(process.env.STORAGE_LIMIT);
 const STORAGE_LIMIT = (Number.isInteger(parseInt(process.env.STORAGE_LIMIT)))? parseInt(process.env.STORAGE_LIMIT) : STORAGE_LIMIT_DEFAULT;
@@ -10,7 +10,7 @@ const STORAGE_LIMIT = (Number.isInteger(parseInt(process.env.STORAGE_LIMIT)))? p
 const limit = async ()=>{
     if(STORAGE_LIMIT > 0){
         const results = await searchModel.collection.stats( { scale : 1024 } );
-        return results.size < STORAGE_LIMIT;
+        return (results.size < STORAGE_LIMIT);
     } else {
         return true;
     }
