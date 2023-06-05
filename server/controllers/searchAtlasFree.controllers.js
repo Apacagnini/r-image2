@@ -45,7 +45,6 @@ const search = async (req, res, next) => {
     seed = parseInt(seed);
     page = parseInt(page);
     per_page = parseInt(per_page);
-    const limitOK = await limit(); //TEST
     
     if (categoriesList.includes(query.replaceAll('_', ' ').replaceAll('+', ' '))) {
         let n = await searchModel.find({ category }).count();
@@ -54,7 +53,7 @@ const search = async (req, res, next) => {
         if (n < per_page * page) {
             console.log('Fetch from external api...');
             let json = await fetchPexels(page, per_page * 2, query);
-            //const limitOK = await limit();
+            const limitOK = await limit();
             if (limitOK) {
                 await savePhotos(json, category);
             }
@@ -85,7 +84,7 @@ const search = async (req, res, next) => {
         let myHost = (req.secure || FORCE_HTTPS_ON_NEXT_PAGE === '1' ? 'https' : 'http') + '://' + req.headers.host;
         let next_page = `${myHost}/search?page=${page + 1}&per_page=${per_page}&query=${query.replaceAll(' ', '+')}&seed=${seed}`;
         console.log('next_page: ', next_page);
-        res.send({ page, per_page, photos, next_page, limitOK });
+        res.send({ page, per_page, photos, next_page });
     }
 }
 
