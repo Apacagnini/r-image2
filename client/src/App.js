@@ -12,21 +12,23 @@ class App extends React.Component {
     this.token = process.env.REACT_APP_API_TOKEN;
     this.state = { activeCategory: 'city night', categories: {}, usedIds: [], photos: {}, apiError: false, loading: false };
   }
-
+  
   fetchCategories(){
     fetch(process.env.REACT_APP_API_URL+'/categories', { headers: { 'apitoken':this.token } })
-        .then(response => response.json())
-        .then(json => {this.categoriesList = json.categoriesList})
-        .catch( () => this.setState({ apiError: true }) );
+    .then(response => response.json())
+    .then(json => {this.categoriesList = json.categoriesList})
+    .catch( () => this.setState({ apiError: true }) );
   }
-
+  
   isInCategories(id) {
     return Object.values(this.state.categories).some((category) => (category.availableIds.includes(id)));
   }
-
+  
+  dohttps = (url) => (process.env.REACT_APP_FORCE_HTTPS_ON_NEXT_PAGE==='1')? url.replace(/^http:\/\//i, 'https://') : url;
+  
   push(category, json) {
     if (Object.keys(json).length === 0) return;
-    this.state.categories[category].next_page = json.next_page;
+    this.state.categories[category].next_page = dohttps(json.next_page);
     this.state.categories[category].page = json.page;
     json.photos.forEach(photo => {
       if (this.isInCategories(photo.id) === false) {
