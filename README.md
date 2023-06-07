@@ -64,7 +64,7 @@ If this variable is not set it takes a default value of 300000Kb. If its value i
     STORAGE_LIMIT=YOUR_LIMIT_IN_KB #Server
 ```
 ##### VERCEL
-In the vercel deploy it automatically sets the environment variables PORT and VERCEL. For more information see [this](https://vercel.com/docs/concepts/projects/environment-variables/system-environment-variables, "").<br>
+In the vercel deploy it automatically sets the environment variables PORT and VERCEL. For more information see [this](https://vercel.com/docs/concepts/projects/environment-variables/system-environment-variables "").<br>
 VERCEL=0 server environment variable disables forced use of https in next_page fields of backend responses.<br>
 ##### FORCE HTTPS ON NEXT PAGE
 If necessary it is possible to force the use of https in the next page calls to the backend from the client by setting the following environment variable.<br>
